@@ -48,6 +48,9 @@ export default function Home() {
             alt=""
             className="absolute w-full object-cover"
             style={{ top: "-10%", height: "120%" }}
+            loading="eager"
+            fetchpriority="high"
+            decoding="async"
           />
         </div>
 
@@ -73,15 +76,13 @@ export default function Home() {
           <div className="flex flex-col sm:flex-row gap-4 items-center">
             <Link
               to="/reservations"
-              className="bg-[#d92b2b] hover:bg-[#b82424] text-[#fff6f4] font-['Barlow_Condensed',sans-serif] font-medium text-[20px] tracking-[2px] uppercase px-8 py-[17px] rounded-[4px] transition-colors"
-              style={{ boxShadow: "0 4px 7px rgba(217,43,43,0.39)" }}
+              className="luxury-cta-primary font-['Barlow_Condensed',sans-serif] font-medium text-[20px] tracking-[2px] uppercase px-8 py-[17px] rounded-[4px] transition-colors"
             >
               RESERVE YOUR TABLE
             </Link>
             <Link
               to="/menu"
-              className="text-[#e5e2e1] hover:text-[#ffb4ac] font-['Barlow_Condensed',sans-serif] font-medium text-[20px] tracking-[2px] uppercase px-[33px] py-[17px] rounded-[4px] transition-colors"
-              style={{ border: "1px solid #4a4a4a" }}
+              className="luxury-cta-outline font-['Barlow_Condensed',sans-serif] font-medium text-[20px] tracking-[2px] uppercase px-[33px] py-[17px] rounded-[4px] transition-colors"
             >
               VIEW TASTING MENU
             </Link>
@@ -110,6 +111,8 @@ export default function Home() {
                     alt="Chef's Table"
                     className="absolute w-full object-cover"
                     style={{ top: "-25%", height: "151%" }}
+                    loading="lazy"
+                    decoding="async"
                   />
                 </div>
               </div>
@@ -154,6 +157,8 @@ export default function Home() {
                   src={imgWinePairing}
                   alt="Wine Pairing"
                   className="absolute inset-0 w-full h-full object-cover opacity-80"
+                  loading="lazy"
+                  decoding="async"
                 />
               </div>
 
@@ -212,6 +217,7 @@ export default function Home() {
                       alt={item.alt}
                       className="w-full h-full object-cover"
                       loading="lazy"
+                      decoding="async"
                     />
                   </div>
                   <div

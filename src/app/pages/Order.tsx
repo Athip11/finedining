@@ -94,8 +94,7 @@ export default function Order() {
                   </p>
                   <Link
                     to="/menu"
-                    className="self-start bg-[#d92b2b] hover:bg-[#b82424] text-[#fff6f4] font-['Barlow_Condensed',sans-serif] font-medium text-[18px] tracking-[1.6px] uppercase px-5 py-3 transition-colors"
-                    style={{ boxShadow: "4px 4px 0 #000" }}
+                    className="luxury-cta-primary self-start font-['Barlow_Condensed',sans-serif] font-medium text-[18px] tracking-[1.6px] uppercase px-5 py-3 transition-colors"
                   >
                     BROWSE MENU
                   </Link>
@@ -114,6 +113,8 @@ export default function Order() {
                         src={item.image}
                         alt={item.name}
                         className="absolute inset-0 w-full h-full object-cover"
+                        loading="lazy"
+                        decoding="async"
                       />
                     </div>
 
@@ -248,17 +249,15 @@ export default function Order() {
                   <button
                     type="button"
                     onClick={handleConcierge}
-                    className="w-full flex items-center justify-center gap-2 py-4 font-['Barlow_Condensed',sans-serif] font-medium text-[#fff6f4] text-[20px] tracking-[2px] uppercase mt-2 hover:bg-[#b82424] transition-colors"
+                    className="luxury-cta-primary w-full flex items-center justify-center gap-2 py-4 font-['Barlow_Condensed',sans-serif] font-medium text-[20px] tracking-[2px] uppercase mt-2 transition-colors"
                     style={{
-                      background: "#d92b2b",
-                      boxShadow: hasItems ? "4px 4px 0 #93000a" : "none",
                       opacity: hasItems ? 1 : 0.45,
                       cursor: "pointer",
                     }}
                   >
                     SEND TO RESTAURANT
                     <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
-                      <path d="M3 8h10M9 4l4 4-4 4" stroke="#FFF6F4" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+                      <path d="M3 8h10M9 4l4 4-4 4" stroke="#131313" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
                     </svg>
                   </button>
 

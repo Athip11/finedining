@@ -20,6 +20,9 @@ export default function About() {
                 src={imgChef}
                 alt="Chef preparing fine dining dish"
                 className="w-full h-full object-cover"
+                loading="eager"
+                fetchpriority="high"
+                decoding="async"
               />
             </div>
 
@@ -32,6 +35,9 @@ export default function About() {
                 src={imgChef}
                 alt="Chef preparing fine dining dish"
                 className="w-full h-full object-cover"
+                loading="eager"
+                fetchpriority="high"
+                decoding="async"
               />
             </div>
 
@@ -104,6 +110,8 @@ export default function About() {
                       src={imgFounderPortrait}
                       alt="L'Aura founder inside the dining room"
                       className="w-full h-full object-cover"
+                      loading="lazy"
+                      decoding="async"
                     />
                   </div>
                   {/* Gradient overlay */}
@@ -191,6 +199,8 @@ export default function About() {
                   src={imgRestaurantEntrance}
                   alt="L'Aura restaurant entrance at evening"
                   className="absolute inset-0 w-full h-full object-cover"
+                  loading="lazy"
+                  decoding="async"
                 />
                 <div
                   className="absolute inset-0"
@@ -209,8 +219,7 @@ export default function About() {
             </p>
             <Link
               to="/reservations"
-              className="bg-[#d92b2b] hover:bg-[#b82424] text-[#fff6f4] font-['Barlow_Condensed',sans-serif] font-medium text-[20px] tracking-[2px] uppercase px-8 py-4 transition-colors"
-              style={{ boxShadow: "6px 6px 0px #000" }}
+              className="luxury-cta-primary font-['Barlow_Condensed',sans-serif] font-medium text-[20px] tracking-[2px] uppercase px-8 py-4 transition-colors"
             >
               RESERVE YOUR TABLE
             </Link>

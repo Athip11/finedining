@@ -51,6 +51,9 @@ export default function Reservations() {
           src={imgRestaurantInterior}
           alt="L'Aura restaurant interior"
           className="w-full h-full object-cover opacity-40"
+          loading="eager"
+          fetchpriority="high"
+          decoding="async"
         />
         <div
           className="absolute inset-0"
@@ -349,10 +352,9 @@ export default function Reservations() {
                 <button
                   type="submit"
                   disabled={!form.agreed}
-                  className="w-full py-5 font-['Barlow_Condensed',sans-serif] font-semibold text-[#fff6f4] text-[24px] tracking-[2px] uppercase transition-all disabled:opacity-40 disabled:cursor-not-allowed hover:bg-[#b82424]"
+                  className="luxury-cta-primary w-full py-5 font-['Barlow_Condensed',sans-serif] font-semibold text-[24px] tracking-[2px] uppercase transition-all disabled:opacity-40 disabled:cursor-not-allowed"
                   style={{
-                    background: "#d92b2b",
-                    boxShadow: form.agreed ? "6px 6px 0 #93000a" : "none",
+                    boxShadow: form.agreed ? "0 10px 26px rgba(197, 168, 128, 0.24)" : "none",
                   }}
                 >
                   CONFIRM RESERVATION

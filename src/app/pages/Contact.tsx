@@ -1,8 +1,9 @@
 import { Link } from "react-router";
-import imgMap from "../../imports/ContactLAuraFineDiningDarkTheme/58b3ca208fe2e024b3333c46c939cb57f4aa7008.png";
 
 export default function Contact() {
   const mapsUrl = "https://www.google.com/maps/search/?api=1&query=99%20Cloud%20Tower%20Downtown";
+  const embeddedMapUrl =
+    "https://www.openstreetmap.org/export/embed.html?bbox=-74.0149%2C40.7034%2C-73.9958%2C40.7148&layer=mapnik&marker=40.7091%2C-74.0053";
 
   return (
     <div className="flex flex-col min-h-screen pt-[80px]" style={{ background: "#0e0e0e" }}>
@@ -98,15 +99,13 @@ export default function Contact() {
                   href={mapsUrl}
                   target="_blank"
                   rel="noreferrer"
-                  className="w-full text-center text-[#e5e2e1] hover:text-[#ffb4ac] font-['Barlow_Condensed',sans-serif] font-semibold text-[24px] uppercase py-[13px] transition-colors"
-                  style={{ border: "1px solid #5c403d" }}
+                  className="luxury-cta-outline w-full text-center font-['Barlow_Condensed',sans-serif] font-semibold text-[24px] uppercase py-[13px] transition-colors"
                 >
                   OPEN IN MAPS
                 </a>
                 <Link
                   to="/reservations"
-                  className="w-full text-center bg-[#d92b2b] hover:bg-[#b82424] text-[#fff6f4] font-['Barlow_Condensed',sans-serif] font-semibold text-[32px] uppercase py-[17px] transition-colors"
-                  style={{ boxShadow: "6px 6px 0 #0e0e0e", border: "1px solid transparent" }}
+                  className="luxury-cta-primary w-full text-center font-['Barlow_Condensed',sans-serif] font-semibold text-[32px] uppercase py-[17px] transition-colors"
                 >
                   RESERVE YOUR TABLE
                 </Link>
@@ -121,25 +120,25 @@ export default function Contact() {
               className="lg:col-span-7 relative min-h-[400px] lg:min-h-[616px] overflow-hidden"
               style={{ background: "#201f1f", border: "1px solid #5c403d" }}
             >
-              {/* Map image */}
-              <div className="absolute inset-0 mix-blend-luminosity opacity-60">
-                <img
-                  src={imgMap}
-                  alt="Map to L'Aura"
-                  className="absolute h-full object-cover"
-                  style={{ left: "-4.63%", width: "109.25%" }}
+              {/* Interactive map */}
+              <div className="absolute inset-0">
+                <iframe
+                  title="Interactive map to L'Aura Fine Dining"
+                  src={embeddedMapUrl}
+                  className="h-full w-full border-0"
+                  loading="lazy"
+                  referrerPolicy="no-referrer-when-downgrade"
                 />
-                <div className="absolute inset-0 mix-blend-saturation bg-white" />
               </div>
 
               {/* Gradient overlay */}
               <div
-                className="absolute inset-0 opacity-80"
+                className="pointer-events-none absolute inset-0 opacity-60"
                 style={{ background: "linear-gradient(to top, #0e0e0e 0%, transparent 50%)" }}
               />
 
               {/* Pin */}
-              <div className="absolute" style={{ top: "45%", left: "60%", transform: "translate(-50%,-50%)" }}>
+              <div className="pointer-events-none absolute" style={{ top: "45%", left: "60%", transform: "translate(-50%,-50%)" }}>
                 <div
                   className="w-4 h-4 rounded-full bg-[#d92b2b]"
                   style={{ boxShadow: "0 0 20px rgba(217,43,43,0.8)" }}

@@ -84,10 +84,9 @@ export function NavBar() {
                   <Link
                     key={to}
                     to={to}
-                    className={`flex items-center justify-center bg-[#d92b2b] hover:bg-[#b82424] text-[#fff6f4] font-['Barlow_Condensed',sans-serif] font-medium text-[17px] tracking-[1px] uppercase px-4 py-2 rounded-md transition-colors ${
-                      active ? "ring-1 ring-[#ffb4ac]" : ""
+                    className={`luxury-cta-primary flex items-center justify-center font-['Barlow_Condensed',sans-serif] font-medium text-[17px] tracking-[1px] uppercase px-4 py-2 rounded-md transition-colors ${
+                      active ? "ring-1 ring-[#f1dfbd]" : ""
                     }`}
-                    style={{ boxShadow: "0 4px 7px rgba(217,43,43,0.39)" }}
                   >
                     {label}
                   </Link>

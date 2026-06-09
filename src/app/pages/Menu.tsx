@@ -379,6 +379,8 @@ export default function Menu() {
                             alt={course.title}
                             className="w-full h-full object-cover"
                             loading={index === 0 ? "eager" : "lazy"}
+                            fetchpriority={index === 0 ? "high" : "auto"}
+                            decoding="async"
                           />
                         </div>
                         <div className="sm:col-span-8 p-5 sm:p-6 flex flex-col gap-4">
@@ -436,8 +438,7 @@ export default function Menu() {
                                   category: activeCategory.label,
                                 })
                               }
-                              className="shrink-0 bg-[#d92b2b] hover:bg-[#b82424] text-[#fff6f4] font-['Barlow_Condensed',sans-serif] font-medium text-[18px] tracking-[1.4px] uppercase px-5 py-3 transition-colors"
-                              style={{ boxShadow: "4px 4px 0 #000" }}
+                              className="luxury-cta-primary shrink-0 font-['Barlow_Condensed',sans-serif] font-medium text-[18px] tracking-[1.4px] uppercase px-5 py-3 transition-colors"
                             >
                               ADD TO ORDER
                             </button>
@@ -524,8 +525,7 @@ export default function Menu() {
                 )}
                 <Link
                   to="/order"
-                  className="self-start bg-[#d92b2b] hover:bg-[#b82424] text-[#fff6f4] font-['Barlow_Condensed',sans-serif] font-medium text-[18px] tracking-[1.6px] uppercase px-5 py-3 transition-colors"
-                  style={{ boxShadow: "4px 4px 0 #000" }}
+                  className="luxury-cta-primary self-start font-['Barlow_Condensed',sans-serif] font-medium text-[18px] tracking-[1.6px] uppercase px-5 py-3 transition-colors"
                 >
                   GO TO ORDER{cartCount > 0 ? ` (${cartCount})` : ""}
                 </Link>
@@ -545,8 +545,7 @@ export default function Menu() {
             </p>
             <Link
               to="/contact"
-              className="bg-[#d92b2b] hover:bg-[#b82424] text-[#fff6f4] font-['Barlow_Condensed',sans-serif] font-medium text-[20px] tracking-[2px] uppercase px-8 py-4 transition-colors"
-              style={{ boxShadow: "6px 6px 0 #000" }}
+              className="luxury-cta-primary font-['Barlow_Condensed',sans-serif] font-medium text-[20px] tracking-[2px] uppercase px-8 py-4 transition-colors"
             >
               CALL US
             </Link>

@@ -220,9 +220,10 @@
   min-height: 48px;
   padding: 12px 10px;
   border-radius: calc(var(--radius) - 2px);
-  background: #d92b2b;
-  box-shadow: 0 4px 7px rgba(217, 43, 43, 0.39);
-  color: #fff6f4;
+  border: 1px solid #d8c29d;
+  background: #c5a880;
+  box-shadow: 0 8px 22px rgba(197, 168, 128, 0.18);
+  color: #131313;
   font-family: "Barlow Condensed", sans-serif;
   font-size: 17px;
   font-weight: 500;
@@ -230,15 +231,65 @@
   line-height: 1;
   text-align: center;
   text-transform: uppercase;
-  transition: background-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+  transition: background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
 }
 
 .mobile-cta-link:hover {
-  background: #b82424;
+  background: #b6976d;
+  border-color: #ead7b3;
 }
 
 .mobile-cta-link.is-active {
-  box-shadow: 0 0 0 1px #ffb4ac, 0 4px 7px rgba(217, 43, 43, 0.39);
+  box-shadow: 0 0 0 1px #f1dfbd, 0 8px 22px rgba(197, 168, 128, 0.22);
+}
+
+.luxury-cta-primary,
+.luxury-cta-outline {
+  display: inline-flex;
+  min-height: 48px;
+  align-items: center;
+  justify-content: center;
+  border-radius: 4px;
+  transition:
+    background-color 0.18s ease-in-out,
+    border-color 0.18s ease-in-out,
+    color 0.18s ease-in-out,
+    box-shadow 0.18s ease-in-out,
+    transform 0.18s ease-in-out;
+}
+
+.luxury-cta-primary {
+  border: 1px solid #d8c29d !important;
+  background: #c5a880 !important;
+  color: #131313 !important;
+  box-shadow: 0 8px 22px rgba(197, 168, 128, 0.18) !important;
+}
+
+.luxury-cta-primary:hover:not(:disabled) {
+  border-color: #ead7b3 !important;
+  background: #b6976d !important;
+  color: #0e0e0e !important;
+  box-shadow: 0 10px 26px rgba(197, 168, 128, 0.24) !important;
+  transform: translateY(-1px);
+}
+
+.luxury-cta-primary:disabled {
+  opacity: 0.42;
+  cursor: not-allowed;
+  box-shadow: none !important;
+}
+
+.luxury-cta-outline {
+  border: 1px solid #c5a880 !important;
+  background: transparent !important;
+  color: #d8c29d !important;
+}
+
+.luxury-cta-outline:hover:not(:disabled) {
+  border-color: #ead7b3 !important;
+  background: rgba(197, 168, 128, 0.12) !important;
+  color: #f1dfbd !important;
+  box-shadow: 0 8px 20px rgba(197, 168, 128, 0.12) !important;
 }
 
 @media (min-width: 1024px) {
