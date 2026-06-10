@@ -16,6 +16,11 @@ export default function Reservations() {
     agreed: false,
   });
   const [submitted, setSubmitted] = useState(false);
+  const [policiesOpen, setPoliciesOpen] = useState({
+    dress: false,
+    deposit: false,
+    cancellations: false,
+  });
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => {
     const { name, value, type } = e.target;
@@ -85,58 +90,82 @@ export default function Reservations() {
               {/* Dress Code */}
               <div style={{ background: "#2a2a2a", border: "1px solid #5c403d" }}>
                 <div
-                  className="flex items-center gap-3 px-4 lg:px-[25px] pt-4 lg:pt-[25px] pb-3 lg:pb-[13px]"
+                  onClick={() => setPoliciesOpen(prev => ({ ...prev, dress: !prev.dress }))}
+                  className="flex items-center justify-between cursor-pointer lg:cursor-default px-4 lg:px-[25px] pt-4 lg:pt-[25px] pb-3 lg:pb-[13px]"
                   style={{ borderBottom: "1px solid #353534" }}
                 >
-                  <svg width="21" height="18" viewBox="0 0 21 18" fill="none">
-                    <path d="M10.5 0L21 18H0L10.5 0Z" fill="#D92B2B" />
-                  </svg>
-                  <p className={labelClass}>DRESS CODE</p>
+                  <div className="flex items-center gap-3">
+                    <svg width="21" height="18" viewBox="0 0 21 18" fill="none">
+                      <path d="M10.5 0L21 18H0L10.5 0Z" fill="#D92B2B" />
+                    </svg>
+                    <p className={labelClass}>DRESS CODE</p>
+                  </div>
+                  <span className="lg:hidden text-[#e5bdb9] text-lg font-mono font-bold leading-none select-none">
+                    {policiesOpen.dress ? "−" : "+"}
+                  </span>
                 </div>
-                <p
-                  className="font-['IBM_Plex_Sans',sans-serif] text-[#e5bdb9] text-[15px] lg:text-[16px] leading-[23px] lg:leading-[24px] px-4 lg:px-[25px] py-4 lg:py-[25px]"
-                  style={{ fontVariationSettings: '"wdth" 100' }}
-                >
-                  Smart Elegant attire is strictly enforced. No shorts, athletic wear, or open-toed sandals permitted.
-                </p>
+                <div className={`${policiesOpen.dress ? "block" : "hidden"} lg:block`}>
+                  <p
+                    className="font-['IBM_Plex_Sans',sans-serif] text-[#e5bdb9] text-[15px] lg:text-[16px] leading-[23px] lg:leading-[24px] px-4 lg:px-[25px] py-4 lg:py-[25px]"
+                    style={{ fontVariationSettings: '"wdth" 100' }}
+                  >
+                    Smart Elegant attire is strictly enforced. No shorts, athletic wear, or open-toed sandals permitted.
+                  </p>
+                </div>
               </div>
 
               {/* Deposit Policy */}
               <div style={{ background: "#2a2a2a", border: "1px solid #5c403d" }}>
                 <div
-                  className="flex items-center gap-3 px-4 lg:px-[25px] pt-4 lg:pt-[25px] pb-3 lg:pb-[13px]"
+                  onClick={() => setPoliciesOpen(prev => ({ ...prev, deposit: !prev.deposit }))}
+                  className="flex items-center justify-between cursor-pointer lg:cursor-default px-4 lg:px-[25px] pt-4 lg:pt-[25px] pb-3 lg:pb-[13px]"
                   style={{ borderBottom: "1px solid #353534" }}
                 >
-                  <svg width="20" height="16" viewBox="0 0 20 16" fill="none">
-                    <rect x="0" y="0" width="20" height="16" rx="2" fill="#D92B2B" />
-                  </svg>
-                  <p className={labelClass}>DEPOSIT POLICY</p>
+                  <div className="flex items-center gap-3">
+                    <svg width="20" height="16" viewBox="0 0 20 16" fill="none">
+                      <rect x="0" y="0" width="20" height="16" rx="2" fill="#D92B2B" />
+                    </svg>
+                    <p className={labelClass}>DEPOSIT POLICY</p>
+                  </div>
+                  <span className="lg:hidden text-[#e5bdb9] text-lg font-mono font-bold leading-none select-none">
+                    {policiesOpen.deposit ? "−" : "+"}
+                  </span>
                 </div>
-                <p
-                  className="font-['IBM_Plex_Sans',sans-serif] text-[#e5bdb9] text-[15px] lg:text-[16px] leading-[23px] lg:leading-[24px] px-4 lg:px-[25px] py-4 lg:py-[25px]"
-                  style={{ fontVariationSettings: '"wdth" 100' }}
-                >
-                  A <strong className="text-[#e5e2e1] font-medium">$50 per person</strong> credit card hold is required to secure your booking. This will not be charged unless cancellation terms are breached.
-                </p>
+                <div className={`${policiesOpen.deposit ? "block" : "hidden"} lg:block`}>
+                  <p
+                    className="font-['IBM_Plex_Sans',sans-serif] text-[#e5bdb9] text-[15px] lg:text-[16px] leading-[23px] lg:leading-[24px] px-4 lg:px-[25px] py-4 lg:py-[25px]"
+                    style={{ fontVariationSettings: '"wdth" 100' }}
+                  >
+                    A <strong className="text-[#e5e2e1] font-medium">$50 per person</strong> credit card hold is required to secure your booking. This will not be charged unless cancellation terms are breached.
+                  </p>
+                </div>
               </div>
 
               {/* Cancellations */}
               <div style={{ background: "#2a2a2a", border: "1px solid #5c403d" }}>
                 <div
-                  className="flex items-center gap-3 px-4 lg:px-[25px] pt-4 lg:pt-[25px] pb-3 lg:pb-[13px]"
+                  onClick={() => setPoliciesOpen(prev => ({ ...prev, cancellations: !prev.cancellations }))}
+                  className="flex items-center justify-between cursor-pointer lg:cursor-default px-4 lg:px-[25px] pt-4 lg:pt-[25px] pb-3 lg:pb-[13px]"
                   style={{ borderBottom: "1px solid #353534" }}
                 >
-                  <svg width="18" height="20" viewBox="0 0 18 20" fill="none">
-                    <path d="M9 0L18 5V15L9 20L0 15V5L9 0Z" fill="#FFB4AB" opacity="0.9" />
-                  </svg>
-                  <p className={labelClass} style={{ color: "#ffb4ab" }}>CANCELLATIONS</p>
+                  <div className="flex items-center gap-3">
+                    <svg width="18" height="20" viewBox="0 0 18 20" fill="none">
+                      <path d="M9 0L18 5V15L9 20L0 15V5L9 0Z" fill="#FFB4AB" opacity="0.9" />
+                    </svg>
+                    <p className={labelClass} style={{ color: "#ffb4ab" }}>CANCELLATIONS</p>
+                  </div>
+                  <span className="lg:hidden text-[#e5bdb9] text-lg font-mono font-bold leading-none select-none">
+                    {policiesOpen.cancellations ? "−" : "+"}
+                  </span>
                 </div>
-                <p
-                  className="font-['IBM_Plex_Sans',sans-serif] text-[#e5bdb9] text-[15px] lg:text-[16px] leading-[23px] lg:leading-[24px] px-4 lg:px-[25px] py-4 lg:py-[25px]"
-                  style={{ fontVariationSettings: '"wdth" 100' }}
-                >
-                  Cancellations must be made at least <strong className="text-[#e5e2e1] font-medium">48 hours</strong> in advance. Late cancellations forfeit the deposit hold.
-                </p>
+                <div className={`${policiesOpen.cancellations ? "block" : "hidden"} lg:block`}>
+                  <p
+                    className="font-['IBM_Plex_Sans',sans-serif] text-[#e5bdb9] text-[15px] lg:text-[16px] leading-[23px] lg:leading-[24px] px-4 lg:px-[25px] py-4 lg:py-[25px]"
+                    style={{ fontVariationSettings: '"wdth" 100' }}
+                  >
+                    Cancellations must be made at least <strong className="text-[#e5e2e1] font-medium">48 hours</strong> in advance. Late cancellations forfeit the deposit hold.
+                  </p>
+                </div>
               </div>
             </aside>
 

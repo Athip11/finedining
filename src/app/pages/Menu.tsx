@@ -378,7 +378,7 @@ export default function Menu() {
                             src={course.image}
                             alt={course.title}
                             className="w-full h-full object-cover"
-                            loading={index === 0 ? "eager" : "lazy"}
+                            loading="eager"
                             fetchpriority={index === 0 ? "high" : "auto"}
                             decoding="async"
                           />
