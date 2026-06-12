@@ -1,7 +1,6 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Link, useLocation } from "react-router";
 import { Menu, X } from "lucide-react";
-import { useCart } from "../cart";
 
 const navLinks = [
   { to: "/", label: "HOME" },
@@ -17,28 +16,12 @@ const ctaLinks = [
 
 export function NavBar() {
   const location = useLocation();
-  const { items } = useCart();
   const [open, setOpen] = useState(false);
-  const cartCount = items.reduce((sum, item) => sum + item.quantity, 0);
-  const mobileCtaLinks =
-    location.pathname === "/"
-      ? [
-          { to: "/contact", label: "CALL US" },
-          { to: cartCount > 0 ? "/order" : "/menu", label: "ORDER" },
-        ]
-      : ctaLinks.filter(() => {
-          if (
-            location.pathname === "/order" ||
-            location.pathname === "/reservations" ||
-            location.pathname === "/menu" ||
-            location.pathname === "/about" ||
-            location.pathname === "/contact"
-          ) {
-            return false;
-          }
 
-          return true;
-        });
+  useEffect(() => {
+    window.scrollTo(0, 0);
+    document.getElementById("root")?.scrollTo(0, 0);
+  }, [location.pathname]);
 
   return (
     <>
@@ -132,25 +115,24 @@ export function NavBar() {
         )}
       </nav>
 
-      {mobileCtaLinks.length > 0 && (
-        <div className="mobile-cta-bar" aria-label="Quick actions">
-          <div className={`mobile-cta-panel${mobileCtaLinks.length === 1 ? " is-single" : ""}`}>
-            {mobileCtaLinks.map(({ to, label }) => {
-              const active = location.pathname === to;
-              return (
-                <Link
-                  key={to}
-                  to={to}
-                  onClick={() => setOpen(false)}
-                  className={`mobile-cta-link${active ? " is-active" : ""}`}
-                >
-                  {label}
-                </Link>
-              );
-            })}
-          </div>
+      <nav className="mobile-cta-bar" aria-label="Quick actions">
+        <div className="mobile-cta-panel">
+          {ctaLinks.map(({ to, label }) => {
+            const active = location.pathname === to;
+            return (
+              <Link
+                key={to}
+                to={to}
+                onClick={() => setOpen(false)}
+                className={`mobile-cta-link${active ? " is-active" : ""}`}
+                aria-current={active ? "page" : undefined}
+              >
+                {label}
+              </Link>
+            );
+          })}
         </div>
-      )}
+      </nav>
     </>
   );
 }

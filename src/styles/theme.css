@@ -198,7 +198,7 @@
 .mobile-cta-panel {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 12px;
+  gap: 8px;
   max-width: 520px;
   margin: 0 auto;
   padding: 8px;
@@ -218,20 +218,33 @@
   align-items: center;
   justify-content: center;
   min-height: 48px;
-  padding: 12px 10px;
+  padding: 10px 2px;
   border-radius: calc(var(--radius) - 2px);
   border: 1px solid #d8c29d;
   background: #c5a880;
   box-shadow: 0 8px 22px rgba(197, 168, 128, 0.18);
   color: #131313;
   font-family: "Barlow Condensed", sans-serif;
-  font-size: 17px;
+  font-size: 12px;
   font-weight: 500;
-  letter-spacing: 1px;
+  letter-spacing: 0.4px;
   line-height: 1;
   text-align: center;
   text-transform: uppercase;
   transition: background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+}
+
+.mobile-cta-link:first-child {
+  border-color: #ead7b3;
+  background: #e4c191;
+  color: #131313;
+  box-shadow: 0 8px 22px rgba(228, 193, 145, 0.24);
+}
+
+.mobile-cta-link:last-child {
+  border-color: #e4c191;
+  background: rgba(92, 64, 61, 0.82);
+  color: #f1dfbd;
 }
 
 .mobile-cta-link:hover {
@@ -240,7 +253,7 @@
 }
 
 .mobile-cta-link.is-active {
-  box-shadow: 0 0 0 1px #f1dfbd, 0 8px 22px rgba(197, 168, 128, 0.22);
+  box-shadow: 0 0 0 1px #f1dfbd, 0 8px 22px rgba(228, 193, 145, 0.28);
 }
 
 .luxury-cta-primary,
